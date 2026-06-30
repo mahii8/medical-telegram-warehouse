@@ -24,3 +24,14 @@ sources:
             description: "View count."
           - name: forwards
             description: "Forward count."
+      - name: yolo_detections
+        description: "Raw YOLO object detection results from images."
+        columns:
+          - name: message_id
+            description: "Telegram message ID the image belongs to."
+          - name: detected_class
+            description: "Object class detected by YOLO."
+          - name: confidence_score
+            description: "Detection confidence (0-1)."
+          - name: image_category
+            description: "Derived category: promotional, product_display, lifestyle, other."

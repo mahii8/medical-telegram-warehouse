@@ -47,3 +47,13 @@ models:
         tests: [not_null]
       - name: forward_count
         tests: [not_null]
+
+  - name: fct_image_detections
+    description: "One row per detected object per image (from YOLO)."
+    columns:
+      - name: message_id
+        tests: [not_null]
+      - name: image_category
+        tests:
+          - accepted_values:
+              values: ['promotional', 'product_display', 'lifestyle', 'other']
