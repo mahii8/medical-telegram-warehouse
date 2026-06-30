@@ -36,4 +36,4 @@ Thumbs.db
 
 # Telegram session
 
-*.session
+*.session.tmp_dagster_home*
