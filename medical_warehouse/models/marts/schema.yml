@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: dim_channels
+    description: "One row per Telegram channel with metadata and stats."
+    columns:
+      - name: channel_key
+        tests: [unique, not_null]
+      - name: channel_name
+        tests: [unique, not_null]
+      - name: channel_type
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Pharmaceutical', 'Cosmetics', 'Medical']
+      - name: total_posts
+        tests: [not_null]
+
+  - name: dim_dates
+    description: "One row per calendar date in the data."
+    columns:
+      - name: date_key
+        tests: [unique, not_null]
+      - name: full_date
+        tests: [unique, not_null]
+      - name: is_weekend
+        tests: [not_null]
+
+  - name: fct_messages
+    description: "One row per message, FK'd to dim_channels and dim_dates."
+    columns:
+      - name: message_id
+        tests: [not_null]
+      - name: channel_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_channels')
+              field: channel_key
+      - name: date_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_dates')
+              field: date_key
+      - name: view_count
+        tests: [not_null]
+      - name: forward_count
+        tests: [not_null]

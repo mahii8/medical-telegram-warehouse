@@ -1,0 +1,39 @@
+.env
+*.env
+
+# Python
+
+__pycache__/
+*.py[cod]
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# dbt
+
+medical_warehouse/target/
+medical_warehouse/dbt_packages/
+medical_warehouse/logs/
+
+# Raw data (too large for git)
+
+data/raw/
+
+# Logs
+
+logs/
+
+# YOLO model weights
+
+*.pt
+
+# OS
+
+.DS_Store
+Thumbs.db
+
+# Telegram session
+
+*.session
