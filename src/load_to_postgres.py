@@ -100,4 +100,4 @@ def load_to_postgres(records):
 if __name__ == "__main__":
     logger.info("🚀 Loading data lake → PostgreSQL")
     records = collect_all_records()
-    load_to_postgres(records)x
+    load_to_postgres(records)
